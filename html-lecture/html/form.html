@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form</title>
+  </head>
+  <body>
+    <form action="join.html" method="get">
+      <!-- 데이터를 처리해라: action. 어떻게? get? or post? -->
+      <!-- 비밀번호를 보낼땐 method에 get이 아닌 post로 보내야 한다. 안그러면 비번 노출 -->
+      <div>id: <input type="text" name="id" placeholder="아이디를 입력하세요." /></div>
+      <div>
+        password:
+        <input type="password" name="password" placeholder="패스워드를 입력하세요." />
+      </div>
+      <!-- input 옆에 생긴 / 는 prettier를 설치해서 생긴 것 -->
+      <div>
+        <span><label for="male">남자</label> <input type="radio" id="male" name="gender" value="male" /></span>
+        <span>
+          <label for="female">여자</label>
+          <input type="radio" id="female" name="gender" value="female" checked />
+        </span>
+        <!-- label: 글씨를 눌러도 선택되도록//클릭되도록 -->
+      </div>
+      <!-- 내가 데이터를 하나만 쓸 수 있을때 radio를 쓴다. name이 같으면.. 하나만 선택할 수있게 옵션이 바뀐다 -->
+      <div>
+        <!-- prettier-ignore -->
+        <span>
+          <label>
+            바둑<input type="checkbox" id="go" name="hobby" value="바둑" />
+          </label>  
+        </span>
+        <!-- prettier가 적용되지 않게 하려면 위에 주석을 달아준다. -->
+        <span><label for="fishing">낚시</label> <input type="checkbox" id="fishing" name="hobby" value="낚시" /> </span>
+        <span><label for="tennis">테니스</label> <input type="checkbox" id="tennis" name="hobby" value="테니스" /> </span>
+        <span><label for="movie">영화 </label><input type="checkbox" id="movie" name="hobby" value="영화" /></span>
+        <!-- 여기서는 너무 길어서 다른 줄에 쓰지만 출력은 같은 줄로 하고싶을 때: span -->
+      </div>
+      <div>
+        <input type="email" name="email" />
+        <!-- 이메일주소 형식에 맞게 @를 쓰라고 메세지가 뜸 -->
+      </div>
+      <div>
+        <input type="date" />
+      </div>
+      <div>
+        <input type="file" />
+      </div>
+      <div>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+      </div>
+      <div>
+        <select name="" id="">
+          <option value="">010</option>
+          <option value="">011</option>
+          <option value="">017</option>
+          <option value="">018</option>
+          <option value="">019</option>
+        </select>
+      </div>
+      <button>join</button>
+    </form>
+  </body>
+</html>

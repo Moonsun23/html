@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>table</title>
+    <link rel="shortcut icon" href="../images/pineapple-png.png"image/x-icon" />
+  </head>
+  <body>
+    <table border="1">
+      <colgroup>
+        <col style="width: 300px" />
+        <col style="width: 500px" />
+        <!-- 행열의 길이 조절 가능! -->
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">제목</th>
+          <th scope="col">내용</th>
+          <!-- th가 한칸/한줄을 나타내는데 줄을 맞춰야 한다..? -->
+          <!-- 위에서 아래로 읽는 것을 나타내가 위해 scope="col"  아래 내용의 항목을 표시할때!-->
+        </tr>
+      </thead>
+      <!-- thead는 생략이 가능하지만..! -->
+      <tbody>
+        <tr>
+          <td>오늘은 날씨가 덥습니다.</td>
+          <td>집에 가고싶어요 리얼로</td>
+          <!-- td는 내용이 들어가는 부분 -->
+        </tr>
+        <tr>
+          <td>오늘은 날씨가 덥습니다.</td>
+          <td>집에 가고싶어요 리얼로</td>
+        </tr>
+        <tr>
+          <td>오늘은 날씨가 덥습니다.</td>
+          <td>집에 가고싶어요 리얼로</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr style="width: 800px" />
+    <!-- 줄 하나 그으려면 hr -->
+
+    <table border="1" width="800px">
+      <colgroup>
+        <col style="width: 30%" />
+        <col style="width: 20%" />
+        <col />
+        <!-- 굳이 안적고 싶다면 남겨둬도 된다. -->
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">주제</th>
+          <th scope="col">태그</th>
+          <th scope="col">비고</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <!-- rowspan/colspan: 병합해야 할때 -->
+          <td rowspan="4">테이블의 구성요소</td>
+          <td>&lt;table&gt;</td>
+          <td>테이블을 만드는 태그</td>
+        </tr>
+        <tr>
+          <td>&lt;th&gt;</td>
+          <td>테이블의 헤더부분을 만드는 태그</td>
+        </tr>
+        <tr>
+          <td>&lt;tr&gt;</td>
+          <td>테이블의 행을 만드는 태그</td>
+        </tr>
+        <tr>
+          <td>&lt;td&gt;</td>
+          <td>테이블의 열을 만드는 태그</td>
+        </tr>
+        <!-- &lt;내용&gt;: 내용에 꺽쇠가 있을 때 그대로 쓰면 속성으로 인식해서 안된다! -->
+      </tbody>
+    </table>
+    <hr style="width: 800px" />
+    <!-- 줄 하나 그으려면 hr -->
+
+    <table border="1" width="800px">
+      <colgroup>
+        <col style="width: 14.28%"/>
+        <col style="width: 14.28%"/>
+        <col style="width: 14.28%"/>
+        <col style="width: 14.28%"/>
+        <col style="width: 14.28%"/>
+        <col style="width: 14.28%"/>
+        <col style="width: 14.28%"/>       
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">월</th>
+          <th scope="col">화</th>
+          <th scope="col">수</th>
+          <th scope="col">목</th>
+          <th scope="col">금</th>
+          <th scope="col">토</th>
+          <th scope="col">일</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <td colspan="2">쌀밥</td>
+            <td colspan="3">잡곡밥</td>
+            <td>스파게티</td>
+            <td>짜장면</td>
+        </tr>
+        <tr>
+            <td>불고기</td>
+            <td>떡갈비</td>
+            <td>미니돈까스</td>
+            <td>오징어볶음</td>
+            <td>제육볶음</td>
+            <td rowspan="2">피클</td>
+            <td>단무지</td>
+        </tr>
+        <tr>
+            <td>배추김치</td>
+            <td>깍두기</td>
+            <td>미소된장국</td>
+            <td>동치미</td>
+            <td>고추절임</td>
+            <td>짬뽕국물</td>
+        </tr>
+        
+      
+      </tbody>
+  </body>
+</html>

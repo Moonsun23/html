@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>andar</title>
+  </head>
+  <body>
+    <h1><img src="" alt="안다르 로고" /></h1>
+    <h2 style="font-size: x-large">
+      <strong>회원가입</strong>
+    </h2>
+
+    <h2>기본정보</h2>
+    <span>
+      <label><input type="checkbox" name="회원구분" value="개인회원" />개인회원 </label>
+      <label><input type="checkbox" name="회원구분" value="사업자회원" /> 사업자회원</label>
+      <label><input type="checkbox" name="회원구분" value="외국인회원(foreigner)" /> 외국인회원(foreigner)</label>
+    </span>
+    <form action="joinandar.html" method="post"></form>
+    <div>아이디 <input type="text" name="아이디" placeholder="(영문소문자/숫자, 4~16자)" /></div>
+    <div>비밀번호 <input type="password" name="비밀번호" placeholder="(영문 대소문자/숫자/특수문자 중 2가지 이상 조헙, 8자~16자)" /></div>
+    <div>비밀번호 확인 <input type="password" name="비밀번호 확인" /></div>
+    <div>이름<input type="text" name="이름" /></div>
+    <div>주소<input type="text" name="주소" /><button style="background-color: black; color: white">우편번호</button></div>
+    <div><input type="text" name="" placeholder="기본주소" /></div>
+    <div><input type="text" name="" /></div>
+    <div>
+      휴대전화<select name="휴대전화" id="tel">
+        <option value="">010</option>
+        <option value="">011</option>
+        <option value="">016</option>
+        <option value="">017</option>
+        <option value="">018</option>
+        <option value="">019</option>
+      </select>
+      <input type="text" name="" /><input type="text" name="" /><button style="background-color: black; color: white">간편인증</button>
+    </div>
+    <div>이메일<input type="email" name="email" /></div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <h2>추가정보</h2>
+    <div>
+      성별<span><label for="male"></label><input type="radio" id="male" name="gender" value="male" />남자 </span
+      ><span><label for="female"></label><input type="radio" id="female" name="gender" value="female" />여자</span>
+    </div>
+    <div>
+      생년월일<span><label for="year"></label><input type="text" id="year" name="" value="" />년</span>
+      <span><label for="month"></label><input type="text" id="month" name="" value="" />월</span>
+      <span><label for="date"></label><input type="text" id="date" name="" value="" />일</span>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <h2>전체동의</h2>
+    <div>
+      <label
+        ><input type="checkbox" name="전체동의" value="모두동의" />이용약관 및 개인정보수집 및 이용, 쇼핑정보 수신(선택)에 모두 동의합니다.</label
+      >
+    </div>
+    <div>
+      <label><input type="checkbox" name="전체동의" value="필수" />[필수]이용약관 동읜</label>
+    </div>
+    <div>
+      <label><input type="checkbox" name="전체동의" value="필수" />[필수]개인정보 수집 및 이용 동의</label>
+    </div>
+    <div>
+      <label><input type="checkbox" name="전체동의" value="선택" />[선택]SMS(문자, 카카오톡 등) 수신을 동의하십니까?</label
+      ><label><input type="checkbox" name="전체동의" value="선택" />[선택]이메일 수신을 동의하십니까?</label>
+    </div>
+    <button>취소</button><button style="background-color: black; color: white">회원가입</button>
+  </body>
+</html>
