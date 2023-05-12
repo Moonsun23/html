@@ -1,0 +1,22 @@
+.main-visual video {
+  width: 100%;
+  /* 동영상이 전체로 커지게 */
+  height: 100vh;
+  /* viewport height: 너가 보고 있는 모니터만큼의 길이로 나타내겠다. */
+  /* object-fit: contain; ///////////////////////////////////////// */
+  /* 가로세로 비율을 유지하라는 뜻 */
+  object-fit: cover;
+  /* 모니터에 최대한 맞추고 가로세로 비율상관없이 자르라는.. */
+}
+.business .list {
+  color: #111;
+  /* 숫자넘버가 디테일한게 우선으로 처리된다. */
+}
+.business .list li {
+  width: 25%;
+  /* 혹은 calc(25% - 40px) CSS에서 연산기호는 띄어서 써야함...!!!!!*/
+}
+.business .list li .img-box {
+  display: none;
+  /* 이미지 안에 있는 글씨가 안보이게 처리 */
+}

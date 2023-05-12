@@ -1,0 +1,10 @@
+body {
+  font-size: 16px;
+  color: #ffffff;
+  font-family: "SUITE-Regular", "Noto Sans KR";
+  font-weight: 400;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
