@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <!-- // 화폐단위로 나누면 몇개씩? 정답// -->
+
+  <label><span>금액</span><input type="text" placeholder="금액을 입력해주세요." class="money" id="money" /></label>
+  <button class="btn-calc">계산하기</button>
+  <button class="btn-reset">초기화</button>
+
+  <div class="result"></div>
+  <script>
+    const money = document.querySelector("#money");
+    const btnCalc = document.querySelector(".btn-calc");
+    const result = document.querySelector(".result");
+    const btnReset = document.querySelector(".btn-reset");
+
+    btnCalc.addEventListener("click", function () {
+      let moneyValue = money.value;
+      // moneyValue의 값이 계속 바뀌어야 하니까 let으로 선언
+
+      const m50000 = Math.floor(moneyValue / 50000);
+      moneyValue = moneyValue % 50000;
+      const m10000 = Math.floor(moneyValue / 10000);
+      moneyValue = moneyValue % 10000;
+      const m5000 = Math.floor(moneyValue / 5000);
+      moneyValue = moneyValue % 5000;
+      const m1000 = Math.floor(moneyValue / 1000);
+      moneyValue = moneyValue % 1000;
+      const m500 = Math.floor(moneyValue / 500);
+      moneyValue = moneyValue % 500;
+      const m100 = Math.floor(moneyValue / 100);
+      moneyValue = moneyValue % 100;
+      const m50 = Math.floor(moneyValue / 50);
+      moneyValue = moneyValue % 50;
+      const m10 = Math.floor(moneyValue / 10);
+      result.textContent = `오만원 ${m50000}장 만원${m10000}장 오천원${m5000}장 천원${m1000}장 오백원${m500}개 백원${m100}개 오십원${m50}개 십원${m10}개`;
+      // 백틱(ESC 밑에)을 눌러주면 문자로 인식하면서 ${} 안의 내용은 변수로 인식한다.
+    });
+    btnReset.addEventListener("click", function () {
+      money.value = "";
+      result.textContent = "";
+    });
+  </script>
+</html>
+<!-- <div class="money">
+    <div class="count">
+      <label><span>금액</span><input type="text" id="howmuch" class="howmuch" placeholder="금액을 입력해주세요." /></label>
+      <button class="btn-calc">계산하기</button>
+      <button class="btn-reset">초기화</button>
+    </div>
+    <div class="result"></div>
+  </div>
+  <script>
+    const howmuch = document.querySelector("howmuch");
+    const btnCalc = document.querySelector(".btn-calc");
+    const btnReset = document.querySelector("btn-reset");
+  
+    const result = document.querySelector(".result");
+  
+    btnCalc.addEventListener("click", function () {
+      const howmuchValue = howmuch.value / 50000;
+          
+    });
+  </script> -->

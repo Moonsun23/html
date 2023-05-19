@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="biman">
+      <div class="calc">
+        <label><span>키</span><input type="text" class="height" id="height" placeholder="키를 입력해 주세요 ex)180" /></label>
+        <label>몸무게<input type="text" class="weight" id="weight" placeholder="몸무게를 입력해 주세요 ex)100" /></label>
+        <button class="btn-calc">측정하기</button>
+        <button class="btn-reset">초기화</button>
+      </div>
+      <div class="result"></div>
+    </div>
+    <script>
+      const height = document.querySelector("#height");
+      const weight = document.querySelector("#weight");
+      const btnCalc = document.querySelector(".btn-calc");
+      const btnReset = document.querySelector(".btn-reset");
+      // 클래스는 .으로 부르고, 클래스가 없을때 id를 우선으로 불러주는데.. 보통은 #으로 많이 부른다.. 클래스를 부를 때는 css에서 가져올 때? .을 찍어서 시작한다.
+      const result = document.querySelector(".result");
+
+      btnCalc.addEventListener("click", function () {
+        // console.log("click");
+        // console.log(height.value);
+        const heightValue = height.value / 100;
+        const weightValue = weight.value;
+        const resultValue = weightValue / (heightValue * heightValue);
+
+        if (resultValue > 18.5 && resultValue < 23.5) {
+          result.textContent = resultValue + "/" + "정상입니다.";
+        } else if (resultValue >= 23.5 && resultValue < 25) {
+          result.textContent = resultValue + "/" + "과체중입니다.";
+        } else if (resultValue >= 25 && resultValue < 30) {
+          result.textContent = resultValue + "/" + "경도비만입니다.";
+        } else if (resultValue >= 30) {
+          result.textContent = resultValue + "/" + "중등비만입니다.";
+        }
+      });
+      //아래: btnReset이라는 버튼을 click 했을 때.. 아무것도 안나오게 하는 초기화..
+      btnReset.addEventListener("click", function () {
+        height.value = "";
+        weight.value = "";
+        result.textContent = "";
+      });
+    </script>
+  </body>
+</html>

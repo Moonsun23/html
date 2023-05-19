@@ -1,0 +1,200 @@
+// $main-color: #f60;
+// 컬러를 지정해서 쓰려면 main-color를 지정하면 또 다른 컬러가 쓰일 때 편하다.
+/* 이렇게 주석처리가 되지만 /를 두개 쓰면 주석처리가 안된다.*/
+
+@import "vars";
+// vars 파일에 있는 언더바를 쓰지않는다.
+// 언더바를 붙이면  css 파일로 컴파일 되지않지만??, import해서 가져올때는 vars앞의 언더바를 쓰지않아도 컴파일 된다..
+
+.header {
+  position: fixed;
+  width: 100%;
+  /* left: 100px;
+    top:300px; -->> 이 구간만 얘의 공간이 된다. */
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0);
+  /* 0을 쓰면 반투명 처리, 1을 쓰면 투명처리 */
+  overflow: hidden;
+  /* 100px 바깥에 있던 애들은 모두 사라지게 처리함 */
+  /* 비디오랑 겹쳐지면 비디오가 기능을 다 막아버린다.. */
+  z-index: 99;
+  /* z 축을 만들어준다. ???*/
+  transition: all 0.5s ease;
+  &:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    position: absolute;
+    top: 100px;
+  }
+  &.on {
+    height: 350px;
+    background-color: rgba(255, 255, 255, 1);
+    .list {
+      color: #111;
+    }
+    .logo a {
+      .white {
+        opacity: 0;
+      }
+      .black {
+        opacity: 1;
+      }
+    }
+  }
+  .logo {
+    position: absolute;
+    /* 로고가 차지하던 영역을 absolute를 통해서 영역을 줄여줬다..? */
+    height: 100px;
+    display: flex;
+    align-items: center;
+    /* outline: 1px solid #f00; */
+    padding-left: 50px;
+    padding-right: 50px;
+    a {
+      .white {
+        position: absolute;
+        transition: all 0.25s ease;
+      }
+      .black {
+        opacity: 0;
+        transition: all 0.25s ease;
+      }
+    }
+  }
+}
+
+.gnb {
+  .list {
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+    > li {
+      .depth01 {
+        position: relative;
+        font-size: 20px;
+        font-weight: 500px;
+        /* display: block; */
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 50px;
+        padding-right: 50px;
+        transition: all 0.25s ease;
+        &:after {
+          content: "";
+          display: block;
+          width: 100%;
+          height: 3px;
+          background-color: $main-color;
+          position: absolute;
+          left: 0;
+          bottom: -2px;
+          transform: scaleX(0);
+          transition: all 0.25s ease;
+          z-index: 1;
+        }
+      }
+      &:hover .depth01 {
+        color: $main-color;
+        &:after {
+          transform: scaleX(1);
+        }
+      }
+      .depth02 {
+        text-align: center;
+        padding-top: 10px;
+        text-align: left;
+        li a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          transition: all 0.25s ease;
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  background-color: #202020;
+  color: #fff;
+  position: relative;
+  padding: 50px 0 100px;
+  .footer-logo {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+  }
+  .container {
+    .menu {
+      display: flex;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+      li {
+        &:nth-child(1) a {
+          padding-left: 0;
+        }
+        a {
+          padding: 20px;
+          display: block;
+          //인라인 속성에 위아래는 없다. 좌우만 있다.
+        }
+      }
+    }
+    address {
+      padding-top: 20px;
+      color: rgba(255, 255, 255, 0.25);
+      copyright {
+        margin-top: 30px;
+      }
+    }
+  }
+  .info-box {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    color: rgba(255, 255, 255, 0.25);
+    .tel {
+      display: flex;
+      dl {
+        display: flex;
+        margin-left: 50px;
+      }
+      dd {
+        color: rgba(255, 255, 255, 0.5);
+        margin-left: 10px;
+      }
+    }
+    .social {
+      display: flex;
+      justify-content: end;
+      margin-top: 30px;
+      a {
+        margin-left: 30px;
+      }
+    }
+  }
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  left: 100px;
+  top: 100px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+  content {
+    width: 400px;
+    height: 400px;
+    background-color: #12c9f2;
+    margin-bottom: 10px;
+  }
+}

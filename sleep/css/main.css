@@ -1,0 +1,60 @@
+.main-visual video {
+  width: 100%;
+  height: 100vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.main-visual .txt {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 100px;
+}
+.main-visual .txt h2 {
+  font-size: 48px;
+}
+.main-visual .scroll {
+  position: absolute;
+  right: 200px;
+  bottom: 0;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main-visual .scroll span {
+  writing-mode: vertical-rl;
+  margin-bottom: 20px;
+}
+.main-visual .scroll .line {
+  content: "";
+  height: 150px;
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: block;
+  position: relative;
+}
+.main-visual .scroll .line:after {
+  content: "";
+  display: block;
+  height: 40px;
+  width: 1px;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  top: 0;
+  animation: scroll 3s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    top: -20px;
+  }
+  50% {
+    height: 50px;
+    background-color: #f00;
+  }
+  100% {
+    top: 100%;
+  }
+}

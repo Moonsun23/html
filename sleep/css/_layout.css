@@ -1,0 +1,198 @@
+/* position/flex
+flex가 동작하는 원인?????????????
+부모태그에게 flex를 준다.
+그렇지만 해당태그에 바로 flex를 주지는 않고 구체적으로 어떤 태그에게 주는지 클래스 이름을 부여해서 준다. 동일한 태그가 해당페이지에 또 있을 수 있으니까!(한화 홈페이지 - depth에 클래스 depth01부여한것 보기
+ID는 해당페이지에서 한번만 쓸 수 있다. */
+
+/* 클래스에 접근 할때는 .을 찍어서 표시한다 */
+/* .(접근할 클래스) 한칸 띄고 자식태그 */
+/* .logo a{ */
+/* justify-content: 클래스의 위치선정시..? main axis 결정(가로축)/ cross axis(세로축) 
+    start/center/space-between(페이지에 여백없이 가로로 펼침)/space-around(간격일정하게 띄워서 가로로 배치-여백조금있음)/ space-evenly(여백 일정하게)*/
+/* inline 형태로 여백을 줄 수 없어서 display의 형태를 바꿔야 한다. */
+.header {
+  position: fixed;
+  /* absolute; 말고 fixed를 써주면 위 레이아웃이 고정된다.*/
+  /* position에 앱솔루트를 주면 내가 원하는 좌표를 지정해 위치를 정할수있다. */
+  width: 100%;
+  /* left: 100px;
+  top:300px; -->> 이 구간만 얘의 공간이 된다. */
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0.5);
+  /* 0을 쓰면 반투명 처리, 1을 쓰면 투명처리 */
+  overflow: hidden;
+  /* 100px 바깥에 있던 애들은 모두 사라지게 처리함 */
+  /* 비디오랑 겹쳐지면 비디오가 기능을 다 막아버린다.. */
+  z-index: 99;
+  /* z 축을 만들어준다. ???*/
+  transition: all 0.5s ease;
+}
+
+.header:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  position: absolute;
+  top: 100px;
+  z-index: -1;
+  /* z-index는 position과 함께 있어야 한다.. */
+}
+/* div로 선을 하나 넣는 것 대신, 가상의 태그를 넣어주는 것... */
+/* pseudo element슈도 엘리먼트..  */
+/* ?????????????????????????????????????????? after말고 line도 있다.. */
+
+.header:hover {
+  height: 350px;
+  background-color: rgba(255, 255, 255, 1);
+}
+/* transition: all ~: 마우스 올렸을 때 어떻게 바뀔지... */
+.header:hover .list {
+  color: #111;
+}
+.header .logo {
+  position: absolute;
+  /* 로고가 차지하던 영역을 absolute를 통해서 영역을 줄여줬다..? */
+  height: 100px;
+  display: flex;
+  align-items: center;
+  /* outline: 1px solid #f00; */
+  padding-left: 50px;
+  padding-right: 50px;
+}
+/* flex혹은 flex-inline을 선언 */
+/* align-items: 교차축 방향(수직방향)으로 아이템의 정렬방법 지정 */
+/* justify-content: 메인축 방향으로 자식들의 정렬방법 지정 */
+
+.header .logo a .white {
+  position: absolute;
+  transition: all 0.25s ease;
+}
+.header .logo a .black {
+  opacity: 0;
+}
+
+.header .logo a .white {
+  opacity: 1;
+}
+.header:hover .logo a .white {
+  opacity: 0;
+}
+.header:hover .logo a .black {
+  opacity: 1;
+}
+
+/* 로고를 겹치게 하려면 a태그 안에 로고 2개의 경로를 쓴다
+투명도를 0과 1로 나눠서 작성하고 hover를 써서 마우스를 갖다댔을 때 어떻게 나올지도 설정한다 */
+
+.list {
+  display: flex;
+  justify-content: center;
+  color: #ffffff;
+}
+.list .depth01 {
+  font-size: 20px;
+  font-weight: 500px;
+  /* display: block; */
+  height: 100px;
+  /* width: 200px; */
+  /* line-height: 100px; */
+  /* 꼭 한 줄일 때만 써야한다... 높이 만큼의 line-height를 주면 된다. */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 50px;
+  padding-right: 50px;
+  /* padding은 안쪽에 여백을 만들 수 있다(위는 글자수 상관없이 왼/오에 50px의 여백을 준다 */
+  /* margin-left: 50px;
+  margin-right: 50px;    */
+  /* 여백을 줄여서 링크 영역을 줄어들게 하는 것 */
+  /* outline: 1px solid #ff0000; */
+  /* border-bottom: 2px solid transparent; */
+  transition: all 0.25s ease;
+}
+
+.list > li .depth01 {
+  position: relative;
+}
+/* relative를 통해 기준을 잡아줘야 after의 내용이 depth01을 따라온다. */
+
+.list > li .depth01:after {
+  content: "";
+  /* content라고 쓰고"내용을 넣어야지만 화면에 보여진다." */
+  /* display: block;
+  width: 100%;
+  height: 3px:
+  background-color: #f60;
+  position: absolute;
+  left: 0;
+  bottom:: -1px;
+  transform: scaleX(0); */
+  /* 가운데 기준으로 0이 되는 것... */
+  transition: all 0.25s ease;
+}
+
+.list > li:hover .depth01 {
+  color: #f60;
+  border-bottom: 2px solid #f60;
+}
+/* 사용자가 마우스를 올렸을 때 어떻게 처리할것인지? */
+.list > li:hover .depth01:after {
+  transform: scaleX(1);
+}
+
+.list .depth02 {
+  text-align: center;
+  padding-top: 10px;
+}
+.list .depth02 li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 50px; */
+  /* 그냥 height만 쓰면 안된다... */
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: all 0.25s ease;
+}
+.list .depth02 li a:hover {
+  color: #f60;
+}
+.popup {
+  /* display: none; */
+  position: fixed;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  left: 100px;
+  top: 100px;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.1);
+}
+.popup .content {
+  width: 400px;
+  height: 400px;
+  background-color: #12c9f2;
+  margin-bottom: 10px;
+}
+
+/* css를 편하고 빠르게 쓸 수 있게 만들어진게 sass/scss */
+
+/* .list {
+  display: flex;
+  li {
+    .depth01 {
+      font-size: 20px;
+      font-weight: 500;
+    }
+    .depth02 {
+
+    }
+  }
+}
+
+.popup {
+  .content {
+
+  }
+} */

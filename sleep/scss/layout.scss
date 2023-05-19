@@ -1,0 +1,105 @@
+@import "vars";
+
+// !important > style > id > class 순서로 명령실행..
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  color: #fff;
+
+  .logo a {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+  }
+  &.on::before {
+    top: 0;
+  }
+  &.on::after {
+    opacity: 1;
+  }
+  &:after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 100px;
+    background-color: rgba(255, 255, 255, 0.25);
+    opacity: 0;
+    transition: all 0.25s ease 0.25s;
+    pointer-events: none;
+  }
+  &:before {
+    content: "";
+    display: block;
+    height: 160px;
+    width: 100%;
+    background-color: rgba(22, 22, 22, 0.75);
+    backdrop-filter: blur(20px);
+    position: absolute;
+    left: 0;
+    top: -160px;
+    z-index: -1;
+    transition: all 0.5s ease;
+  }
+
+  .gnb {
+    .list {
+      display: flex;
+      > li {
+        border-radius: 0px 0px 20px 20px;
+        padding-bottom: 30px;
+        &:hover {
+          .depth01:after {
+            transform: scaleX(1);
+          }
+          .depth02 {
+            display: flex;
+          }
+        }
+      }
+
+      .depth01 {
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: capitalize;
+        font-size: $h3;
+        font-weight: 500;
+        padding: 0 60px;
+        position: relative;
+        &:after {
+          content: "";
+          display: block;
+          position: absolute;
+          bottom: 0;
+          height: 2px;
+          left: 50px;
+          right: 50px;
+          transform: scaleX(0);
+          transition: all 0.25s ease;
+          background-color: #fff;
+        }
+      }
+      .depth02 {
+        text-align: center;
+        display: none;
+        position: absolute;
+        padding-left: 40px;
+        li {
+          a {
+            display: block;
+            padding: 20px;
+          }
+        }
+      }
+    }
+  }
+}

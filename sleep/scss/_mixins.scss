@@ -1,0 +1,20 @@
+@mixin longShadow($limit: 30, $color: rgba(0, 0, 0, 1)) {
+  //1px 1px
+  $shadow: "";
+  @for $i from 1 to $limit {
+    $shadow: $shadow + $i + "px " + $i + "px 0px " + $color + ",";
+  }
+  $shadow: $shadow + $limit + "px " + $limit + "px 0px " + $color;
+  $shadow: unquote($shadow);
+  text-shadow: $shadow;
+}
+
+@mixin icon($code) {
+  font-family: "Material Icons";
+  content: $code;
+}
+
+@mixin box($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
