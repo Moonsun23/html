@@ -4,6 +4,7 @@
     width: 100%;
     height: 100vh;
     object-fit: cover;
+    vertical-align: top;
   }
   .txt {
     color: #fff;
@@ -29,13 +30,12 @@
       margin-bottom: 20px;
     }
     .line {
-      content: "";
       height: 150px;
       width: 1px;
       background-color: rgba(255, 255, 255, 0.2);
       display: block;
       position: relative;
-      //   overflow: hidden;
+      overflow: hidden;
       &:after {
         content: "";
         display: block;
@@ -44,7 +44,7 @@
         background-color: rgba(255, 255, 255, 1);
         position: absolute;
         top: 0;
-        animation: scroll 3s linear infinite;
+        animation: scroll 2s linear infinite;
       }
     }
   }
@@ -64,3 +64,242 @@
     top: 100%;
   }
 }
+.title-box {
+  padding: 0 50px;
+  h2 {
+    font-size: $h4;
+  }
+  h3 {
+    font-size: $h2;
+    font-weight: 700;
+  }
+  a {
+    padding: 15px 30px;
+    border: 1px solid #fff;
+    margin-top: 30px;
+    display: inline-block;
+  }
+}
+
+.tech {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 400px);
+  background-image: url(../images/main/sec2_bg.jpg);
+  color: #fff;
+  padding: 50px;
+  gap: 15px;
+  .content {
+    position: relative;
+    border-radius: 30px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+    overflow: hidden;
+    &:not(.not)h3 {
+      position: absolute;
+      bottom: 0;
+      font-size: $h3;
+      font-weight: 700;
+      width: 100%;
+      padding: 20px 40px;
+      &::after {
+        content: "";
+        display: block;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.2);
+        position: absolute;
+        left: 0;
+        bottom: -100%;
+        transition: all 0.25s ease;
+      }
+    }
+
+    &:hover h3:after {
+      bottom: 0;
+    }
+    &:nth-child(1) {
+      grid-column: 1/3;
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      flex-direction: column;
+      // padding: 0 50px;
+      // 상하는 0, 좌우 50px 이라는 뜻
+    }
+    &:nth-child(2) {
+      background-image: url(../images/main/sec2_bg1.jpg);
+    }
+    &:nth-child(3) {
+      background-image: url(../images/main/sec2_bg2.jpg);
+    }
+    &:nth-child(4) {
+      background-image: url(../images/main/sec2_bg3.jpg);
+    }
+    &:nth-child(5) {
+      background-image: url(../images/main/sec2_bg4.jpg);
+    }
+    &:nth-child(6) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      h3 {
+        font-size: $h2;
+      }
+    }
+    &:nth-child(7) {
+      background-image: url(../images/main/sec2_bg5.jpg);
+    }
+  }
+}
+
+.product {
+  padding: 100px 0;
+  background-color: $gray;
+  display: flex;
+  justify-content: space-between;
+
+  .title-box {
+    padding: 0 50px;
+    color: #111;
+    a {
+      border-color: #111;
+    }
+  }
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px;
+    padding: 100px 50px;
+    li {
+      margin-bottom: 50px;
+      width: 50%;
+      &:nth-child(1) h3:before {
+        background-image: url(../images/main/sec3_icon1.png);
+      }
+      &:nth-child(2) h3:before {
+        background-image: url(../images/main/sec3_icon2.png);
+      }
+      &:nth-child(3) h3:before {
+        background-image: url(../images/main/sec3_icon3.png);
+      }
+      &:nth-child(4) h3:before {
+        background-image: url(../images/main/sec3_icon4.png);
+      }
+      h3 {
+        font-size: $h3;
+        margin-bottom: 20px;
+        &::before {
+          content: "";
+          display: block;
+          height: 64px;
+          width: 64px;
+          background-repeat: no-repeat;
+          background-position: 50% 0;
+          //background-image: url(../images/main/sec3_icon1.png);
+          border: 2px solid #111;
+          border-radius: 100%;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+  .img-area {
+    display: flex;
+    align-items: center;
+    padding-right: 100px;
+    img:nth-child(1) {
+      margin-right: -30px;
+      position: relative;
+    }
+    img:nth-child(3) {
+      margin-left: 30px;
+    }
+  }
+}
+.media {
+  background-color: $gray;
+  padding: 100px 0;
+  .mask {
+    padding: 50px;
+    margin: 0 auto;
+    overflow-x: hidden;
+    margin-top: 150px;
+  }
+  .list {
+    li {
+      width: 400px;
+      &:hover a {
+        transform: translateY(-50px);
+      }
+      a {
+        border-radius: 30px;
+        overflow: hidden;
+        display: block;
+        transition: all 0.5s ease;
+
+        img {
+          width: 100%;
+          height: 250px;
+          // aspect-ratio: 2/1;
+          object-fit: cover;
+          vertical-align: top;
+        }
+        p {
+          padding: 35px;
+          background-color: rgba(0, 0, 0, 0.25);
+        }
+      }
+    }
+  }
+}
+
+// .tech {
+//   display: grid;
+//   // 격자만들때
+//   //column 4개/ row 2개
+//   // grid-template-columns: 300px 300px 300px 300px;
+//   // grid-template-columns: repeat(4, 300px);
+//   // 300px 짜리를 4번 반복할거다
+//   // grid-template-columns: 1fr 1fr 1fr 1fr;
+//   //   // fraction(4등분 한다)
+//   // grid-template-columns: 2fr 1fr 1fr 1fr;
+//   // //  맨 앞 열이 2배 넓음
+//   // minmax 란?
+//   grid-template-columns: repeat(3, minmax(150px, 1fr));
+//   grid-template-rows: repeat(4, 200px);
+//   gap: 10px;
+//   // 칸 별 간격
+//   .content {
+//     border: 1px solid #f00;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     font-size: 40px;
+
+//     &:nth-child(1) {
+//       // grid-column-start: 1;
+//       // grid-column-end: 3;
+//       // grid-column-end: span 3;
+//       // grid-column: 1/3;
+//       // // 1에서 3만큼 column으로 쓴다.(1번째 라인부터 3번째라인까지..)44
+//       // grid-row-start: 1;
+//       // //  위처럼 쓰면 row의 start를 2번 줄부터 하겠다는 뜻.
+//       // grid-column-start: 1;
+//       // grid-column-end: 4;
+//       grid-column: 1/4;
+//     }
+//     &:nth-child(2) {
+//       grid-row: 2/4;
+//     }
+//     &:nth-child(3) {
+//       grid-column: 2/4;
+//     }
+//     &:nth-child(6) {
+//       // grid-column-end: span 3;
+//       grid-column: 1 / span 3;
+//       // 1번부터 span 하는데 3까지 해라
+//     }
+//   }
+// }

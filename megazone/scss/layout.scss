@@ -1,0 +1,174 @@
+@import "vars";
+
+@import "mixins";
+
+.header {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  width: 100%;
+  // 넓이를 넓혀줘야 fixed된 것이 끝으로 펼쳐진다.
+  z-index: 99;
+  transition: all 0.25s ease;
+
+  .logo {
+    height: 80px;
+    padding: 0 50px;
+    img {
+      height: 40px;
+      top: 20px;
+      position: absolute;
+      opacity: 0;
+      transition: all 0.25s ease;
+      &.white {
+        opacity: 1;
+      }
+    }
+  }
+  &.on {
+    // main.js 부분에 해당되는 것..
+    color: #111;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    // on이 붙었을 때만...쓰는 box-shadow
+    .logo {
+      img {
+        &.white {
+          opacity: 0;
+        }
+        &.black {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+.gnb {
+  .list {
+    display: flex;
+    li {
+      a {
+        display: flex;
+        align-items: center;
+        height: 80px;
+        padding: 0 40px;
+        font-size: $h3;
+        font-weight: 500;
+
+        // box-sizing: border-box;
+      }
+    }
+  }
+}
+// greensock - zip 파일 다운 - minified 폴더를 js에 추가해주기 - 핵심파일 gsap.min.js
+.footer {
+  background-color: #111;
+  color: rgba(255, 255, 255, 0.75);
+  padding: 150px 0;
+  .upper {
+    display: flex;
+    // align-items: start;
+    // align-items의 default는 stretch: 본인 텍스트의 높이를 맞춰달란 얘기..
+    // start는 본인 높이만큼만 가져간단 얘기
+    .menu-box {
+      width: 50%;
+      .list {
+        display: flex;
+        flex-wrap: wrap;
+        > li {
+          width: 50%;
+          margin-bottom: 50px;
+          &:nth-child(1) {
+            order: 1;
+          }
+          &:nth-child(2) {
+            order: 3;
+          }
+          &:nth-child(3) {
+            order: 2;
+          }
+          &:nth-child(4) {
+            order: 4;
+          }
+          &:nth-child(5) {
+            order: 5;
+          }
+        }
+        .depth01 {
+          font-size: $h3;
+          font-weight: 700;
+          &:after {
+            @include icon("\f1df");
+            display: inline-block;
+            margin-left: 20px;
+          }
+        }
+        .depth02 {
+          margin-top: 20px;
+          // margin은 큰 숫자 우선으로 잡히는거...기억.
+          li {
+            a {
+              font-size: $h4;
+              padding: 10px 0;
+              // padding은 위아래는 안되는데 좌우는 잘 된다. a태그가 인라인이라서... padding은 잘 안쓴다.
+              display: block;
+              //하지만 block 처리 해주면 ㅇㅋ..?
+              //a, span, strong, em, input 위아래 안먹음.. 좌우는 잘됨. 넓이 높이 설정못함.
+            }
+          }
+        }
+      }
+    }
+    .inquiry {
+      background-color: #222;
+      // width: 50%;
+      //flex-grow를 줄거면 width는 필요엄따
+      flex-grow: 1;
+      // 내가 여백을 다 가져가겠다면 flex-grow
+      // 만약 menu-box에 flex-grow 1이 같이 있다면 반반 나눈다는 뜻
+      // 만약 menu-box에 1, inquiry에 2가 있다면 3분의1, 3분의 2씩 나눠가진다는 뜻.
+      padding: 80px;
+      font-size: $h4;
+      position: relative;
+      .main {
+        font-size: $h2;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+      .more {
+        position: absolute;
+        right: 80px;
+        bottom: 80px;
+        // absolute 때문에 좌표를 잡아줘야 해서 오른쪽 끝 기분/ 맨 아래 기준으로 값을 줘야 자리를 잡을 수 ㅇㅆ음
+      }
+    }
+  }
+  .lower {
+    border-top: 1px solid rgba(255, 255, 255, 0.75);
+    padding-top: 100px;
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    address {
+      font-family: "Noto Sans KR";
+      line-height: 1.5;
+      .megazone {
+        margin-right: 20px;
+      }
+      .info-box {
+        display: flex;
+        margin: 10px 0;
+      }
+      dl {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+      }
+    }
+    .copyright {
+      font-size: 14px;
+    }
+  }
+}

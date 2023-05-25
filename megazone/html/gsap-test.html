@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>슝 연습장</title>
+    <link rel="shortcut icon" href="../image/layout/MZ_favicon_16x16.png" type="image/x-icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/swiper-bundle.css" />
+    <link rel="stylesheet" href="../css/font.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/layout.min.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+
+    <script src="../js/swiper-bundle.min.js"></script>
+    <script src="../js/greensock/gsap.min.js"></script>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .red {
+        background-color: #f00;
+      }
+      .green {
+        background-color: #0f0;
+      }
+      .blue {
+        background-color: #00f;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box red">red</div>
+    <div class="box green">green</div>
+    <div class="box blue">blue</div>
+    <script>
+      //   gsap.to(".red", { x: 1200, backgroundColor: "#000", color: "#fff", duration: 3, ease: "power3", delay: 1 });
+      // 움직일 대상에 to를 써주고 괄호안에 지정할 것을 쓴다
+      // font-size 같은것은 큰따옴표로 감싸주거나 fontSize 라고 써준다.
+      // ** 수치로 된 것은 다 바꿀 수 있다 **
+      // gsap.to(".box", { x: 1200, backgroundColor: "#000", color: "#fff", duration: 3, ease: "power3", delay: 1 });
+      // box라고 쓰면 상자 3개가 다 움직인다.
+
+      //   gsap.to(".red", { x: 1200, backgroundColor: "#000", color: "#fff", duration: 3, ease: "power3", delay: 1 });
+      //   gsap.to(".green", { x: 1200, backgroundColor: "#000", color: "#fff", duration: 3, ease: "power3", delay: 1.2 });
+      //   gsap.to(".blue", { x: 1200, backgroundColor: "#000", color: "#fff", duration: 3, ease: "power3", delay: 1.4 });
+
+      gsap.to(".box", { x: 1200, backgroundColor: "#000", color: "#fff", duration: 3, ease: "power3", delay: 1, stagger: 0.2 });
+      // stagger를 쓰면 box가 움직이는 시간에 0.2초간 텀을 준다는 뜻
+      // gsap.to 가 아닌 from을 쓰면 이미 실행된 상태에서 돌아오는 것..
+    </script>
+  </body>
+</html>

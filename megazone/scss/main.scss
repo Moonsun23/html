@@ -1,0 +1,295 @@
+@import "vars";
+@import "mixins";
+.main-visual {
+  iframe {
+    // position: absolute;
+    width: 100%;
+    aspect-ratio: 1/ 0.5625;
+    // object-fit: cover;
+  }
+  .slogan {
+    position: absolute;
+    color: #fff;
+    font-size: $h1;
+    top: 50%;
+    // top에서부터 아래로 50% 내려온다..
+    transform: translateY(-50%);
+    text-align: center;
+    width: 100%;
+    // absolute라서 text align 해도 가운데로 안와서 넓이를 100%를 줘야함
+    line-height: 1.5;
+    font-weight: 700;
+    .word {
+      overflow: hidden;
+      // splitting.js 를 끌고와서 적용시키고, 다시 검사를 해서 splitting.js에서 나온 class인 word를 끌고옴...
+    }
+  }
+}
+.banner {
+  padding: 150px 0;
+  //margin-left: 300px;
+  overflow-x: hidden;
+  .mask {
+    margin-top: 120px;
+    position: relative;
+    // vw: 화면 넓이 따라가는 것
+    .list {
+      li {
+        width: 1160px;
+        p {
+          margin-top: 30px;
+          font-size: $h3;
+          .category {
+            padding: 10px 20px;
+            background-color: #111;
+            color: #fff;
+          }
+        }
+      }
+    }
+    button {
+      position: absolute;
+      background: none;
+      top: 40%;
+      border: 2px solid #fff;
+      border-radius: 100%;
+      width: 60px;
+      height: 60px;
+      z-index: 2;
+      cursor: pointer;
+      .material-icons {
+        font-size: 48px;
+        color: #fff;
+      }
+      &.btn-next {
+        right: 270px; //1430 - 1160
+      }
+    }
+    .pagination {
+      margin-top: 50px;
+      .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        opacity: 1;
+        border: 3px solid $main-color;
+        background: none;
+        border-radius: 100px;
+        &-active {
+          width: 50px;
+          background-color: $main-color;
+        }
+      }
+    }
+  }
+}
+.partner {
+  padding: 150px 0;
+  background-color: $bg-color;
+  overflow-x: hidden;
+  .brand {
+    margin-top: 50px;
+    ul {
+      // display: flex;
+      // animation: brand-motion 5s linear infinite;
+      transition-timing-function: linear;
+      li {
+        // padding: 20px 50px;
+        width: auto;
+        padding: 0 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
+// !!!!!!!다르면 쪼갠다!!!!!!!!!!!!!!!!
+.effect {
+  position: relative;
+  // background-color: rgb(2, 146, 134);
+  // padding-top: 150px;
+  // // padding은 내꺼.. 라서 위를 채워주려면 이걸 써야함
+  // padding-bottom: 150px;
+  padding: 150px 0;
+  // refactoring -> 쭉 써보고 나서 나중에 다시 정리하는 과정
+  color: #fff;
+
+  .panel {
+    ul {
+      display: flex;
+      justify-content: space-between;
+      li {
+        width: 24%;
+        // 1% 여백을 위해 4등분 하되 24%로 씀
+        // 검사에서 영역을 표시해보면 오른쪽으로 여백이 좀 있음
+        // border: 1px solid #fff;
+        // flex-grow: 1;
+        // 여백을 너가 알아서 비율로 나눠서 가져가라
+        a:hover {
+          img {
+            transform: scale(1.25);
+            // 가운데를 중심으로 훅 커졌다가 줄어드니까...
+            // 1.25배 정도 커졌다가 줄어들도록 만들어줌..!
+          }
+        }
+        .img-box {
+          overflow: hidden;
+          // img만 따로 클래스를 준 이유 -> 넘는 이미지를 히든처리하기위해..
+        }
+        img {
+          width: 100%;
+          vertical-align: top;
+          // 효과같은거 줄 때 가끔 딸깍거리는 현상이 발생하면 ..
+          transition: all 0.25s ease;
+          aspect-ratio: 1/1.5;
+          // 높이가 일정하게 만들어줌..!
+        }
+      }
+    }
+  }
+
+  .bg {
+    position: absolute;
+    // absolute처리하면 내 맘대로 위치를 지정할수있다..
+    left: 0;
+    top: 0;
+    width: 100%;
+    aspect-ratio: 1/0.5625;
+    // 16:9 비율이기 때문에 9 나누기 16을 해야함.
+    // 0.5625 -? view 에서 command palette -> emmet evaluate math ~ 누르면 계산됨
+    z-index: -1;
+    //비디오를 가장 밑으로 내려보내기 위해..
+  }
+}
+
+.news {
+  padding: 150px;
+
+  //넓이를 준 상태에서 padding을 주면 더 커진다..
+  .title-box {
+    display: flex;
+    // news가 가지고 있는 title-box만 flex 처리하겠다..!!!!!
+    // 다른데 있는 title-box는 flex 할 필요가 없으므로...!
+    align-items: end;
+    //   margin-bottom: 80px;
+    // 위아래 margin-bottom 80과 margin-top 50이 겹치면 130이 되는 것이 아니라... 더 큰 값만 적용된다.
+    h2 {
+      margin-bottom: 0;
+      // 아래 title-box에 있는 h2와 달리.. margin-bottom이 필요없으니까 여기 0으로 처리....
+    }
+    .detail {
+      margin-left: 50px;
+      font-size: $h4;
+    }
+  }
+  .panel {
+    margin-top: 50px;
+    ul {
+      display: flex;
+      // justify-content: space-between;
+      gap: 0 20px;
+      //margin: 마진처리를 하면 사방공간 모두 여백이 생긴다.
+      //gap: 처음과 마지막에는 따로 생기지 않는다. (이미지 사이사이 공간만 뜬다)
+      li {
+        width: 33.33%;
+        // 여기에 margin을 주면 100%가 넘는다... margin과 width는 겹쳐지지 않는다.
+        // 100%가 넘어서 옆으로 스크롤이 길어지게 하지 않으려면 flex-wrap 으로 wrap을 해주면 아래로 내려간다...(블로그 앨범형 같은 모습)
+        .img-box {
+          img {
+            width: 100%;
+          }
+        }
+        .txt-box {
+          h3 {
+            margin: 20px 0 30px;
+            font-size: $h3;
+            @include ellipsis();
+            // white-space: nowrap;
+            // // 무조건 한줄로 써달라는 뜻
+            // overflow: hidden;
+            // // width: 400px;
+            // text-overflow: ellipsis;
+            // // ellipsis는 한줄짜리 를 줄일때..
+          }
+          p {
+            @include multiEllipsis(2, 2);
+            // 이 p태그의 기사처럼 기사내용을 줄이는 '...' 을 쓰려면
+          }
+        }
+      }
+    }
+  }
+}
+
+.recruit {
+  color: #fff;
+  padding: 150px 0;
+  background-image: url(../image/main/background.png);
+  .txt-box {
+    font-size: $h1 * 1.5;
+    font-weight: 700;
+    line-height: 1.5;
+    .rolling {
+      width: 450px;
+      height: 120px;
+      overflow: hidden;
+      display: inline-block;
+      text-align: center;
+      color: $main-color;
+      position: relative;
+      &:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 10px;
+        background-color: #fff;
+        position: absolute;
+        bottom: 0;
+      }
+    }
+  }
+}
+.more {
+  width: 200px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: $h3;
+  font-weight: 500;
+  background-color: $main-color;
+  @include longShadow(40, darken($main-color, 10));
+  // darken -> 기존 컬러에서 10정도 어둡게 한 컬러를 shadow로 쓰겟다는 표시
+  overflow: hidden;
+}
+.title-box {
+  h2 {
+    font-size: $h1;
+    line-height: 1.25;
+    .mini {
+      color: $main-color;
+      display: block;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+  }
+  p {
+    font-size: $h3;
+  }
+  .detail {
+    .material-icons {
+      vertical-align: middle;
+      margin-left: 10px;
+      margin-bottom: 6px;
+    }
+  }
+}
+
+// @keyframes brand-motion {
+//   0% {
+//     transform: translateX(0);
+//   }
+//   100% {
+//     transform: translateX(-50%);
+//   }
+// }

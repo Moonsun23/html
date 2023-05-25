@@ -1,0 +1,60 @@
+@charset "UTF-8";
+/* css는 다 같은 파일에 넣어도 되지만 분류할때 편하게 알아보도록 파일을 여러개 나눠서 넣어둔다.
+layout은 헤더를 통해 들어가는 요소를 넣어두고
+common은 공통적인 부분
+main은 index에 들어가는 부분을 넣어둔다... */
+body {
+  font-size: 16px;
+  color: #111;
+  /* 공통된 css는 모든 파일에서 가져다 쓸 수 있게끔 밖으로 빼준다. */
+  /* 몇 몇 태그들은 부모의 속성을 물려받지 않는 것들도 있다.*/
+  font-family: "SF_HambakSnow", "Noto Sans KR";
+  /* 영문폰트가 있으면 영문폰트부터 써야 한다.. */
+  /* 차선책으로 다음 폰트를 입력할수도 있다. */
+  font-weight: 400;
+  min-height: 4000px;
+  /* 맨 아래는 내용이 없어도 어느정도 여백이 있으면 할때 */
+}
+
+a {
+  text-decoration: none;
+  /* color: #ff0000; */
+  color: inherit;
+  /* 상속받으려면 inherit */
+  /* a는 기본적으로 밑줄을 가지고 있기 때문에 텍스트 아래 밑줄을 없애기 위해서 decoration: none 으로 적어줌 */
+}
+
+.container {
+  /* 이 부분이 메인화면의 폭을 정해준 태그.. 1200으로 */
+  width: 1430px;
+  /* margin-left: auto;
+    margin-right: auto; */
+  margin: 0 auto;
+  /* CSS는 시계방향으로 여백을 계산해서 위 0, 오른쪽 auto, 아래 0, 왼쪽 auto.. >> 0 auto 라고도 쓸 수 있다. */
+  /* outline: 1px solid #f00; */
+  position: relative;
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: 700;
+  /* weight는 px 단위가 없어서 그냥 숫자만 써준다. */
+  margin-bottom: 50px;
+}
+
+strong {
+  font-weight: 700;
+  /* 얇은 순서 100/300/400/500/700/900 */
+}
+
+p {
+  line-height: 1.5;
+}
+
+.point-color {
+  color: #0b7bff;
+}
+
+.section {
+  padding: 100px 0;
+}
