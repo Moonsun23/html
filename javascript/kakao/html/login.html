@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- // form 태그에서 중요한 것: action에 넘어갈 곳을 적어주는 것. name값을 대입해주는 것. -->
+    <form action="login-process.html">
+      <!-- // form 태그는 청구서.= 서버랑 통신하려고 만든 서버.. // // ""에 아무것도 안쓰면 페이지 자체적으로 새로고침만 하고 만다. 넘어갈 곳을 정해줘야함. -->
+
+      <div>
+        <label><span>아이디</span><input type="text" class="user-id" name="userID" /></label>
+      </div>
+      <div>
+        <label><span>패스워드</span><input type="password" class="user-pw" name="userPW" /></label>
+      </div>
+      <div>
+        <button>ID check</button>
+        <button class="btn-login" type="submit">로그인</button>
+      </div>
+    </form>
+    <script>
+      const btnLogin = document.querySelector(".btn-login");
+      const userID = document.querySelector(".user-id");
+      const userPW = document.querySelector(".user-pw");
+      btnLogin.addEventListener("click", (e) => {
+        e.preventDefault();
+        // console.log(userID.value);
+        // console.log(userPW.value);
+        // console.log("click");
+        if (userID.value === "hi1237" && userPW.value === "1234") {
+          alert("로그인 성공");
+          location.href = "http://www.daum.net";
+          // value라는 속성을 통해 값을 얻어
+        }
+      });
+      //   'e'를 써줘야 한다.. click 이 생겼을 때 모든 정보가 e로 들어간다. 바로 action="" 의 페이지로 넘어가는걸 막아준다.
+    </script>
+  </body>
+</html>

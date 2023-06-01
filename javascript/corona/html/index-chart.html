@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Corona chart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Raleway:ital,wght@0,100;0,300;1,100;1,200&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../css/fancybox.css" />
+    <link rel="stylesheet" href="../css/loading.css" />
+    <link rel="stylesheet" href="../css/lightpick.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <script src="../js/greensock/gsap.min.js"></script>
+    <script src="../js/fancybox.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="../js/lodash.min.js"></script>
+    <script src="../js/chart.js"></script>
+    <script src="../js/lightpick.js"></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <h1>CORONA Chart</h1>
+    </header>
+    <div class="coronaList">
+      <div class="date-box"><input type="text" class="date-picker" /></div>
+      <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="chart-box">
+        <canvas class="chart"></canvas>
+        <!-- // 그림 그려주는..차트 그려주는.. -->
+      </div>
+    </div>
+
+    <script src="../js/main-chart.js"></script>
+  </body>
+</html>

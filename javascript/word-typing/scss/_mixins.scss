@@ -1,0 +1,54 @@
+// 기본처럼 쓸 함수 코드를 쓰는 곳...
+
+@mixin longShadow($limit: 30, $shadowColor: rgba(0, 0, 0, 0.1)) {
+  $shadow: "";
+  @for $i from 1 to $limit {
+    $shadow: $shadow + $i + "px " + $i + "px 0px " + $shadowColor + ",";
+  }
+  $shadow: $shadow + $limit + "px " + $limit + "px 0px " + $shadowColor;
+  $shadow: unquote($shadow);
+  // ""(큰따옴표)를 제거해달라는거... 위는 "shadow에 있는 큰따옴표를 없애주세여.."
+  // 왜냐하면 함수에는 큰따옴표를 쓸 수 없으니까..
+  text-shadow: $shadow;
+}
+
+// @mixin longShadow($limit: 30, $color: rgba(0, 0, 0, 1)) {
+//   //1px 1px
+//   $shadow: "";
+// -->>>shadow는 아무글자도 없다!!!
+//   @for $i from 1 to $limit {
+//     $shadow: $shadow + $i + "px " + $i + "px 0px " + $color + ",";
+//   }
+//   $shadow: $shadow + $limit + "px " + $limit + "px 0px " + $color;
+//   $shadow: unquote($shadow);
+//   text-shadow: $shadow;
+// }
+
+@mixin icon($code) {
+  font-family: "Material Icons";
+  content: $code;
+}
+
+@mixin box($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin ellipsis() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  //한줄짜리를 줄일 때
+}
+
+@mixin multiEllipsis($line: 3, $lineHeight: 1.5) {
+  line-height: $lineHeight;
+  height: $line * $lineHeight * 1em;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  // 3줄짜리로 요약하는 것..
+  // $line(몇줄로), $lineHeight(행간을) 얼마나 할지...
+}
